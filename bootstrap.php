@@ -1,15 +1,14 @@
 <?php
 
-function resolve($route){
-    $path = $_SERVER['PATH_INFO'] ?? '/';
-    $route = '/^' . str_replace('/', '\/', $route). '$/';
+session_start();
 
-    if(preg_match($route, $path, $params)){
-        return $params;
-    }
+require __DIR__ . '/config.php';
+require __DIR__ . '/src/error_handler.php';
+require __DIR__ . '/src/resolve-route.php';
+require __DIR__ . '/src/render.php';
+require __DIR__ . '/src/connection.php';
+require __DIR__ . '/src/flash.php';
 
-    return false;
-}
 
 
 if(resolve('/admin/?(.*)')){

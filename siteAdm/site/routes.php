@@ -2,10 +2,9 @@
 
 
 if(resolve('/')){
-    render('site/home','site');
+    echo('Home');
  }elseif(resolve('/contato')){
-    render('site/contato','site');
+     echo('contato');
  }else{
-     http_response_code(404);
      echo('Página não encontrada');
  }
